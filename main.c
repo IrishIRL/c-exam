@@ -66,6 +66,7 @@ char** Exam(FLIGHT* pFlights, int nFlights) {
     for (int i = 0; i < nFlights; i++) {
         char* pOut = (char*)malloc((strlen(pFlights[i].pStartingPoint) + 30) * sizeof(char));
 
+        //Month can be done in different way, check at the end of the code.
         struct tm dep = {
             0,
             pFlights[i].Departure.Min,
@@ -73,7 +74,7 @@ char** Exam(FLIGHT* pFlights, int nFlights) {
             pFlights[i].Departure.day,
             Month(pFlights[i].Departure.month),
             pFlights[i].Departure.year - 1900 };
-
+        
         struct tm arr = dep;
 
         arr.tm_hour += pFlights[i].Duration.hours;
@@ -81,6 +82,7 @@ char** Exam(FLIGHT* pFlights, int nFlights) {
         arr.tm_hour += 2;
         arr.tm_min += pFlights[i].Duration.mins;
 
+        //check for new hour-day-month-year
         if (arr.tm_min > 59) {
             arr.tm_min -= 60;
             arr.tm_hour += 1;
@@ -114,7 +116,6 @@ char** Exam(FLIGHT* pFlights, int nFlights) {
         *(pOut + (strlen(pFlights[i].pStartingPoint) + 30)) = '\0';
         *(ppResults + i) = pOut;
     }
-
     return ppResults;
 }
 
