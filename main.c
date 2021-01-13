@@ -117,3 +117,12 @@ char** Exam(FLIGHT* pFlights, int nFlights) {
 
     return ppResults;
 }
+
+/* Months can be also found in another way:
+const char* months[] = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+
+for (int i = 0; i < nFlights; i++) {
+for (int x = 0; x < 12; x++) {
+if (strcmp(months[x], pFlights[i].Departure.month) == 0) {
+
+Then in the struct tm dep month will be 'x'*/
