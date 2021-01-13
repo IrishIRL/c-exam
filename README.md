@@ -1,5 +1,5 @@
-# c-exam
- Taltech Fundamentals of Programming 2020 Autumn Exam
+#Taltech Fundamentals of Programming 2020 Autumn Exam (C language)
+13.01.2021
 
 Let us have
 ~~~
